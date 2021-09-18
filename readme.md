@@ -19,6 +19,38 @@ There are 2 repositories involved. One is the producer repo **async-db-update-pr
 ## Data source
 [US stock market data from Alpaca websocket stream](https://alpaca.markets/docs/api-documentation/api-v2/streaming/)
 
+## Schema
+
+Sample data from the subscribed stream:
+
+```
+[{"T":"t","i":96921,"S":"AAPL","x":"D","p":126.55,"s":1,"t":"2021-02-22T15:51:44.208Z","c":["@","I"],"z":"C"}]
+```
+| Attribute | Data type | description              |
+|-----------|-----------|--------------------------|
+| T         | string    | message type, always “t” |
+| S         | string    | symbol                   |
+| i         | int       | trade ID                 |
+| x         | string    | exchange code where the trade occurred |
+| p         | decimal   | trade price              |
+| s         | int       | trade size               |
+| t         | string    | RFC-3339 formatted timestamp with nanosecond precision. |
+| c         | string[]  | trade condition          |
+| z         | string    | tape                     |
+
+The corresponding relational database schema is as below:
+
+Table name: trade_data
+
+| Column name | data type |
+|-------------|-----------|
+| symbol      | char(10)  |
+| trade_id    | int       |
+| exchange_code | char(10) |
+| price       | decimal   |
+| size        | int       |
+| timestamp   | timestamp |
+
 ## Getting start
 
 1. Preparation
