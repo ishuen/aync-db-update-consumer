@@ -17,9 +17,16 @@ public class Consumer {
     channel.queueDeclare(QUEUE_NAME, false, false, false, null);
     System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
+    TradeProcessor tradeProcessor = new TradeProcessor();
+
     DeliverCallback deliverCallback = (consumerTag, delivery) -> {
       String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
       System.out.println(" [x] Received '" + message + "'");
+      try {
+        tradeProcessor.saveRecord(message);
+      } catch (Exception e){
+        System.out.println("Message Handling Error: " + e.getMessage());
+      }
     };
     channel.basicConsume(QUEUE_NAME, true, deliverCallback, consumerTag -> { });
   }
