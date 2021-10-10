@@ -42,14 +42,14 @@ The corresponding relational database schema is as below:
 
 Table name: trade_data
 
-| Column name | data type |
-|-------------|-----------|
-| symbol      | char(10)  |
-| trade_id    | int       |
-| exchange_code | char(10) |
-| price       | decimal   |
-| size        | int       |
-| timestamp   | timestamp |
+| Column name   | data type |
+|---------------|-----------|
+| symbol        | char(10)  |
+| trade_id      | int       |
+| exchange_code | char(10)  |
+| price         | decimal   |
+| quantity      | int       |
+| timestamp     | timestamp |
 
 ## Getting start
 
