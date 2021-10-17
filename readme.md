@@ -57,15 +57,38 @@ Table name: trade_data
 
 	- Prepare a Alpaca paper account
 	- Rename `key.sample.config` file to `key.config` and Specify the API key and secret key in the configuration file
+	- Install postgresql locally (To utilize docker container is also fine.)
+
+    ```
+    brew install postgresql
+    brew services start postgresql
+    ```
+    
+	- Create a database stock_db in local db server
 	
+	```
+	psql postgres
+	CREATE DATABASE stock_db;
+	```
+
+	- Creata a user for stock_db.
+	
+	```
+	CREATE USER stock_user WITH ENCRYPTED PASSWORD '<password>';
+	GRANT ALL PRIVILEGE ON DATABASE stock_db TO stock_user;
+	```
 
 2. Run rabbitmq server locally
 
-```
-docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management
-```
+    ```
+    docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management
+    ```
 
 3. Run DB server
+
+    ```
+    brew services start postgresql
+    ```
 
 4. Run consumer application
 
