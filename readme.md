@@ -76,6 +76,13 @@ Table name: trade_data
 	```
 	CREATE USER stock_user WITH ENCRYPTED PASSWORD '<password>';
 	GRANT ALL PRIVILEGE ON DATABASE stock_db TO stock_user;
+	\q
+	```
+	
+	- Reconnect to the newly created database and create a table.
+	
+	```
+	psql -d stock_db -f <project-root-directory>/src/main/resources/table_creation.sql
 	```
 
 2. Run rabbitmq server locally
