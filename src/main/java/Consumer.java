@@ -9,6 +9,7 @@ public class Consumer {
   private final static String QUEUE_NAME = "queue";
 
   public static void main(String[] argv) throws Exception {
+
     ConnectionFactory connectionFactory = new ConnectionFactory();
     connectionFactory.setHost("localhost");
     Connection connection = connectionFactory.newConnection();

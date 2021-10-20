@@ -82,7 +82,7 @@ Table name: trade_data
 	- Reconnect to the newly created database and create a table.
 	
 	```
-	psql -d stock_db -f <project-root-directory>/src/main/resources/table_creation.sql
+	psql -U stock_user -d stock_db -f <project-root-directory>/src/main/resources/table_creation.sql
 	```
 
 2. Run rabbitmq server locally
