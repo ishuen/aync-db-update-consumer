@@ -56,7 +56,7 @@ Table name: trade_data
 1. Preparation
 
 	- Prepare a Alpaca paper account
-	- Rename `key.sample.config` file to `key.config` and Specify the API key and secret key in the configuration file
+	- Rename `key.sample.config` file to `key.config` in producer repo and specify the API key and secret key in the configuration file
 	- Install postgresql locally (To utilize docker container is also fine.)
 
     ```
@@ -79,6 +79,7 @@ Table name: trade_data
 	\q
 	```
 	
+	- Rename `db.sample.config` file to `db.config` in consumer repo and specify the url, username and password.
 	- Reconnect to the newly created database and create a table.
 	
 	```
