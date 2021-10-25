@@ -14,8 +14,7 @@ There are 2 repositories involved. One is the producer repo **async-db-update-pr
 3. In order not to let the sudden data surge caused by the market spike effect the application performance, the producer does not handle synchronous functions such as data tuple insertion. The producer pushes events to the message queue.
 4. The rabbitMq server routes the events to the consumer application.
 5. The consumer application receives the event and transform the data from string to the trade record object.
-6. The consumer application convert the trade record to trade entity. (The current application code does not rely on JPA. So the conversion from object to entity and then to sql command looks redundant.)
-7. The consumer application inserts the trade entity to the database.
+6. The consumer application inserts the trade record to the database.
 
 ## Data source
 [US stock market data from Alpaca websocket stream](https://alpaca.markets/docs/api-documentation/api-v2/streaming/)
